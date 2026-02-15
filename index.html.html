@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tu Eres Mi Universo</title>
+
+<style>
+body{
+    margin:0;
+    padding:0;
+    background:#000;
+    color:white;
+    font-family:'Arial Black',sans-serif;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+/* estrellas */
+#star-field{
+    position:absolute;
+    top:0;left:0;
+    width:100%;height:100%;
+    z-index:-1;
+}
+
+.star{
+    position:absolute;
+    background:white;
+    border-radius:50%;
+    animation:twinkle var(--duration) infinite ease-in-out;
+}
+
+@keyframes twinkle{
+    0%,100%{opacity:0.2;transform:scale(1);}
+    50%{opacity:1;transform:scale(1.5);}
+}
+
+/* texto */
+.main-text{
+    position:absolute;
+    top:8%;
+    font-size:2.2rem;
+    text-align:center;
+    width:100%;
+    letter-spacing:4px;
+    text-shadow:0 0 20px rgba(255,255,255,0.8);
+    animation:heartbeat 3s infinite ease-in-out;
+    z-index:100;
+}
+
+/* animaciones */
+@keyframes rotate{
+    from{transform:rotate(0deg);}
+    to{transform:rotate(360deg);}
+}
+
+@keyframes counter-rotate{
+    from{transform:rotate(0deg);}
+    to{transform:rotate(-360deg);}
+}
+
+@keyframes heartbeat{
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.2);}
+}
+
+@keyframes fall{
+    0%{transform:translateY(-10vh) rotate(0deg);opacity:1;}
+    100%{transform:translateY(110vh) rotate(360deg);opacity:0;}
+}
+
+/* universo */
+.universe-container{
+    position:relative;
+    width:100vw;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    transform:scale(0.75);
+}
+
+.center-heart{
+    font-size:5.5rem;
+    color:#ffb6c1;
+    filter:drop-shadow(0 0 35px #ffb6c1);
+    animation:heartbeat 1.5s infinite ease-in-out;
+    cursor:pointer;
+    z-index:50;
+}
+
+.orbit{
+    position:absolute;
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:50%;
+    animation:rotate linear infinite;
+}
+
+.heart-wrapper{
+    position:absolute;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    animation:counter-rotate linear infinite;
+}
+
+.heart-icon{
+    font-size:1.5rem;
+    animation:heartbeat 1.2s infinite ease-in-out;
+}
+
+.pink{color:#FFB6C1;filter:drop-shadow(0 0 5px #FFB6C1);}
+.white{color:#FFFFFF;filter:drop-shadow(0 0 5px #FFFFFF);}
+
+.label{
+    font-size:0.75rem;
+    margin-top:5px;
+    white-space:nowrap;
+    font-family:Arial,sans-serif;
+    text-shadow:1px 1px 3px #000;
+}
+
+/* 10 orbitas */
+.o1{width:300px;height:150px;animation-duration:12s;}
+.o2{width:400px;height:200px;animation-duration:16s;}
+.o3{width:500px;height:250px;animation-duration:20s;}
+.o4{width:600px;height:300px;animation-duration:24s;}
+.o5{width:700px;height:350px;animation-duration:28s;}
+.o6{width:800px;height:400px;animation-duration:32s;}
+.o7{width:900px;height:450px;animation-duration:36s;}
+.o8{width:1000px;height:500px;animation-duration:40s;}
+.o9{width:1100px;height:550px;animation-duration:44s;}
+.o10{width:1200px;height:600px;animation-duration:48s;}
+
+.p-top{top:0;left:50%;transform:translate(-50%,-50%);}
+.p-bot{bottom:0;left:50%;transform:translate(-50%,50%);}
+.p-left{left:0;top:50%;transform:translate(-50%,-50%);}
+.p-right{right:0;top:50%;transform:translate(50%,-50%);}
+
+.music-btn{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:rgba(255,182,193,0.2);
+    border:1px solid #ffb6c1;
+    color:white;
+    padding:10px 15px;
+    border-radius:30px;
+    cursor:pointer;
+}
+
+/* lluvia */
+.heart-rain{
+    position:fixed;
+    top:-20px;
+    pointer-events:none;
+    animation:fall linear forwards;
+    z-index:999;
+}
+</style>
+</head>
+
+<body>
+
+<div id="star-field"></div>
+
+<div class="main-text">TU ERES Y SERÁS MI UNIVERSO</div>
+
+<div class="universe-container">
+<div class="center-heart" onclick="toggleMusic()">❤️</div>
+
+<div class="orbit o1"><div class="heart-wrapper p-top" style="animation-duration:12s;"><span class="heart-icon pink">❤️</span><span class="label">Mi refugio</span></div></div>
+<div class="orbit o2"><div class="heart-wrapper p-bot" style="animation-duration:16s;"><span class="heart-icon white">🤍</span><span class="label">Mi paz</span></div></div>
+<div class="orbit o3"><div class="heart-wrapper p-left" style="animation-duration:20s;"><span class="heart-icon pink">💖</span><span class="label">Mi destino</span></div></div>
+<div class="orbit o4"><div class="heart-wrapper p-right" style="animation-duration:24s;"><span class="heart-icon white">🤍</span><span class="label">Mi alegría</span></div></div>
+<div class="orbit o5"><div class="heart-wrapper p-top" style="animation-duration:28s;"><span class="heart-icon pink">💗</span><span class="label">i will folloy you</span></div></div>
+<div class="orbit o6"><div class="heart-wrapper p-bot" style="animation-duration:32s;"><span class="heart-icon white">🤍</span><span class="label">Mi mundo entero</span></div></div>
+<div class="orbit o7"><div class="heart-wrapper p-left" style="animation-duration:36s;"><span class="heart-icon pink">💓</span><span class="label">Eres mi cielo</span></div></div>
+<div class="orbit o8"><div class="heart-wrapper p-right" style="animation-duration:40s;"><span class="heart-icon white">🤍</span><span class="label">mi gatito panzon</span></div></div>
+<div class="orbit o9"><div class="heart-wrapper p-top" style="animation-duration:44s;"><span class="heart-icon pink">💕</span><span class="label">Mi vida entera</span></div></div>
+<div class="orbit o10"><div class="heart-wrapper p-bot" style="animation-duration:48s;"><span class="heart-icon white">🤍</span><span class="label">Mi único amor</span></div></div>
+
+</div>
+
+<audio id="bg-music" loop>
+<source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+<button class="music-btn" onclick="toggleMusic()">🎵 Reproducir Música</button>
+
+<script>
+const starField=document.getElementById('star-field');
+for(let i=0;i<350;i++){
+    const star=document.createElement('div');
+    star.className='star';
+    const size=Math.random()*2.5+'px';
+    star.style.width=size;
+    star.style.height=size;
+    star.style.top=Math.random()*100+'vh';
+    star.style.left=Math.random()*100+'vw';
+    star.style.setProperty('--duration',(Math.random()*3+2)+'s');
+    starField.appendChild(star);
+}
+
+let rainInterval=null;
+
+function toggleMusic(){
+    const music=document.getElementById('bg-music');
+    const btn=document.querySelector('.music-btn');
+
+    if(music.paused){
+        music.play();
+        btn.innerText="⏸ Pausar Música";
+        rainInterval=setInterval(createHeart,200);
+    }else{
+        music.pause();
+        btn.innerText="🎵 Reproducir Música";
+        clearInterval(rainInterval);
+    }
+}
+
+function createHeart(){
+    const colors=["#FFB6C1","#FFFFFF","#FFC0CB"];
+    const heart=document.createElement("div");
+    heart.classList.add("heart-rain");
+    heart.innerText="❤️";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.color=colors[Math.floor(Math.random()*colors.length)];
+    heart.style.animationDuration=(Math.random()*2+3)+"s";
+    heart.style.fontSize=(Math.random()*20+15)+"px";
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),5000);
+}
+</script>
+
+</body>
+</html>
